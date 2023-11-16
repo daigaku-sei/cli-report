@@ -7,7 +7,7 @@ current_time=$(date +"%T")
 hostname=$(hostname)
 
 # Get IP address
-ip_address=$(ip addr show ens18 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+ip_address=$(curl ifconfig.me)
 
 # Get distribution name
 distribution=$(uname -a | awk '{print $2}')
@@ -22,7 +22,7 @@ uptime=$(uptime -p)
 users=$(who | awk '{print $1}' | sort | uniq)
 
 # Append the information to the motd file
-echo "Hello, this is MOTD: CLI20, node06." >> $PREFIX/etc/motd
+echo "Hello, this is MOTD: CLI20, node06." > $PREFIX/etc/motd
 echo "Current time: $current_time" >> $PREFIX/etc/motd
 echo "Hostname: $hostname" >> $PREFIX/etc/motd
 echo "IP address: $ip_address" >> $PREFIX/etc/motd
