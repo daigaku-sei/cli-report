@@ -7,7 +7,7 @@ current_time=$(date +"%T")
 hostname=$(hostname)
 
 # Get IP address
-ip_address=$(ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+ip_address=$(ip addr show ens18 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 # Get distribution name
 distribution=$(uname -a | awk '{print $2}')
